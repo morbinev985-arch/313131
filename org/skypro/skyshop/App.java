@@ -31,5 +31,6 @@ basket.add(fish);
         basket.print();
         System.out.println("стоимость пустой корзины" + basket.getTotalCost());
         System.out.println("поиск товара\"" + bananas.getTitle()+ "\" в корзине: " + basket.findByTitle);
+        System.out.println();
     }
 }
