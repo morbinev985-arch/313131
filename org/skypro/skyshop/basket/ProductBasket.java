@@ -24,57 +24,73 @@ public class ProductBasket {
     }
 
     public int getTotalCost() {
-        int sum =0;
+        int sum = 0;
         for (Product product : products) {
             if (product != null) {
-                sum+= product.getPrice();
+                sum += product.getPrice();
             }
         }
         return sum;
     }
+
     public void print() {
-        if (getProductCount() <=0) {
+        if (getProductCount() <= 0) {
             System.out.println("в корзине пусто");
             return;
         }
 
         for (Product product : products) {
-            if (product !=null) {
-                System.out.println(product.getTitle() + " : " + product.getPrice());
+            if (product != null) {
+                System.out.println(product);
             }
         }
         System.out.println("итого: " + getTotalCost());
+        System.out.println("специальных товаров: " + getSpecialProductCount());
     }
 
- public boolean findByTitle(String title) {
-     for (Product product : products) {
-         if (product != null && product.getTitle().equals(title)) {
-             return true;
-         }
-         }
-     return false;
-     }
-     public void clear() {
-         Arrays.fill(products, null);
-     }
+    public boolean findByTitle(String title) {
+        for (Product product : products) {
+            if (product != null && product.getTitle().equals(title)) {
+                return true;
+            }
+        }
+        return false;
+    }
 
-     private int getFreeIndex() {
-        for(int i=0; i< products.length;i++) {
-            if (products[i]== null) {
+    public void clear() {
+        Arrays.fill(products, null);
+    }
+
+    public int getSpecialProductCount() {
+        int count = 0;
+        for (Product product : products) {
+            if (product != null) {
+                if (product.isSpescial()) {
+                    count++;
+                }
+            }
+        }
+        return count;
+    }
+
+    private int getFreeIndex() {
+        for (int i = 0; i < products.length; i++) {
+            if (products[i] == null) {
                 return i;
             }
         }
         return NOT_FOUND;
-     }
+    }
 
-     private int getProductCount() {
-        int count =0;
+    private int getProductCount() {
+        int count = 0;
         for (Product product : products) {
-            if (product !=null) {
+            if (product != null) {
                 count++;
             }
         }
         return count;
-     }
- }
+    }
+}
+
 
