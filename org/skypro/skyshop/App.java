@@ -6,12 +6,12 @@ import org.skypro.skyshop.product.Product;
 public class App {
     public static  void  main(String[] args) {
 
-        Product bananas = new Product("бананы", 200);
-        Product oranges = new Product("апельсины", 150);
-        Product water = new Product("вода", 120);
-        Product cookies = new Product("печенье", 150);
-        Product fish = new Product("рыба", 500);
-        Product beer = new Product("пиво", 300);
+        Product bananas = new SimpleProduct("бананы", 200);
+        Product oranges = new FixPriceProduct("апельсины", 150);
+        Product water = new FixPriceProduct("вода", 120);
+        Product cookies = new DiscountedProduct("печенье", 150);
+        Product fish = new DiscountedProduct("рыба", 500);
+        Product beer = new SimpleProduct("пиво", 300);
 
         ProductBasket basket = new ProductBasket();
 
